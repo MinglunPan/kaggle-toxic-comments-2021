@@ -3,6 +3,7 @@ import pandas as pd
 import random
 import torch
 import os
+import warnings
 
 def weightedSum(data, weight_dict):
     return (data[weight_dict.keys()] * np.array(weight_dict)).sum(axis = 1)
@@ -15,7 +16,7 @@ def sample_binary(data, target_col,
     filter_ = data[target_col].apply(filter_func)
     filter_count = filter_.value_counts().sort_values()
     if len(filter_count) != 2:
-        raise Warnings("The number of class is not equal to 2")
+        warnings.warn("The number of class is not equal to 2")
     # undersample 大的抽小的
     # Oversample 小的抽大的（有放回）
     min_count, max_count = filter_count.values
