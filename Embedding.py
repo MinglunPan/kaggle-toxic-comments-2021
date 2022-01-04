@@ -56,6 +56,7 @@ class Embedding:
     def fit(self, text_series):
         self.text_series = text_series
         self.__fit_dict = {key:False for key in self.__fit_dict.keys()}
+        self.__fit_dict['BERT'] = True
     def isFit(self, method):
         return self.__fit_dict.get(method)
     def transform(self, method, text_series, batch_size = None):
