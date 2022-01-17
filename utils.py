@@ -5,6 +5,8 @@ import torch
 import os
 import warnings
 
+
+
 def weightedSum(data, weight_dict):
     return (data[weight_dict.keys()] * np.array(weight_dict)).sum(axis = 1)
 
